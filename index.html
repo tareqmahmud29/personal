@@ -2,56 +2,99 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Study Routine Planner</title>
   <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-  
+  <div class="container">
+    <header>
+      <h1><i class="fas fa-calendar-alt"></i> Study Routine Planner</h1>
+      <p>Organize your study schedule for maximum productivity</p>
+    </header>
 
-  <header>
-    <h1>Study Routine Planner</h1>
-    <p>Create your perfect study schedule</p>
-  </header>
+    <main>
+      <section class="form-section">
+        <div class="card">
+          <h2><i class="fas fa-plus-circle"></i> Add Study Session</h2>
+          <form id="routineForm">
+            <div class="form-group">
+              <label for="subject"><i class="fas fa-book"></i> Subject</label>
+              <input type="text" id="subject" placeholder="e.g., Mathematics, Biology" required>
+            </div>
 
-  <main>
-    <button onclick="location.href='routine.html'">Create My Routine</button>
-  </main>
+            <div class="form-group">
+              <label for="time"><i class="fas fa-clock"></i> Study Time</label>
+              <input type="text" id="time" placeholder="e.g., 4:00 PM - 5:30 PM" required>
+            </div>
 
+            <div class="form-group">
+              <label for="days"><i class="fas fa-calendar-day"></i> Days</label>
+              <div class="days-container" id="days">
+                <button type="button" class="day-btn" value="Monday">Mon</button>
+                <button type="button" class="day-btn" value="Tuesday">Tue</button>
+                <button type="button" class="day-btn" value="Wednesday">Wed</button>
+                <button type="button" class="day-btn" value="Thursday">Thu</button>
+                <button type="button" class="day-btn" value="Friday">Fri</button>
+                <button type="button" class="day-btn" value="Saturday">Sat</button>
+                <button type="button" class="day-btn" value="Sunday">Sun</button>
+              </div>
+              <input type="hidden" id="selectedDays">
+            </div>
 
-  <footer>
-    <p>&copy; 2025 StudyRoutineApp</p>
-  </footer>
-</body>
+            <div class="form-group">
+              <label for="priority"><i class="fas fa-exclamation-circle"></i> Priority</label>
+              <select id="priority">
+                <option value="low">Low</option>
+                <option value="medium" selected>Medium</option>
+                <option value="high">High</option>
+              </select>
+            </div>
 
-</html>
+            <div class="form-group">
+              <label for="notes"><i class="fas fa-sticky-note"></i> Notes (Optional)</label>
+              <textarea id="notes" placeholder="Any specific topics or reminders..."></textarea>
+            </div>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Study Routine Planner</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  
+            <div class="form-actions">
+              <button type="submit" class="btn-primary">
+                <i class="fas fa-plus"></i> Add to Routine
+              </button>
+              <button type="button" id="downloadPdf" class="btn-secondary">
+                <i class="fas fa-file-pdf"></i> Export as PDF
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
 
-  <header>
-    <h1>Study Routine Planner</h1>
-    <p>Create your perfect study schedule</p>
-  </header>
+      <section class="routine-section">
+        <div class="card">
+          <div class="routine-header">
+            <h2><i class="fas fa-list-ul"></i> Your Study Routine</h2>
+            <button id="clearAll" class="btn-danger">
+              <i class="fas fa-trash-alt"></i> Clear All
+            </button>
+          </div>
+          
+          <div id="routineList">
+            <div class="routine-days">
+              <!-- Days will be populated by JavaScript -->
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
 
-  <main>
-    <button onclick="location.href='routine.html'">Create My Routine</button>
-  </main>
-
-
-  <footer>
-     <p>&copy; <span id="year"></span> - Developed by <a href="https://github.com/tarekmahmud" target="_blank">Tarek Mahmud</a></p>
-  </footer>
-  <div class="copyright">
-    &copy; <span id="year"></span> - Developed by <a href="https://github.com/tarekmahmud" target="_blank">Tarek Mahmud</a>
+    <footer>
+      <p>&copy; <span id="year"></span> - Developed by <a href="https://github.com/tarekmahmud" target="_blank">Tarek Mahmud</a></p>
+    </footer>
   </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="script.js"></script>
+
 </body>
-
 </html>
-
